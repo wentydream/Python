@@ -1,0 +1,4 @@
+#安装
+pip install pyinstaller
+#打包
+pyinstaller -F mycode.py
