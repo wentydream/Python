@@ -1,0 +1,1 @@
+static是flask的静态路径，可直接url访问
