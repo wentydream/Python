@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
+    </head>
+    <body>
+        {% for i in filepath %}
+        <a href="#" onclick="window.location.href='/download/'+this.text">{{i}}</a><br />
+        {% endfor %}
+        <!-- https://www.cnblogs.com/xiao-xue-di/p/11237154.html -->
+        <!-- 附件只能通过submit方法进行提交 -->
+        <form id="form1" method="post" action="/upload" enctype="multipart/form-data" target="targetIfr">
+            <div>
+                <!--                 
+                <input id="a" type="text" name=""/>
+                <input id="b" type="password" name=""/>
+                <input id="c" type="radio" name=""/>
+                <input id="d" type="checkbox" name=""/>
+                <input id="e" type="image" src=""/> -->
+                <input id="upfile" type="file" multiple="true" name="myfile"/>
+                <input type="submit" value="提交"></input>
+            </div>
+        </form>
+        <!-- 巧用iframe解决页面重定向问题 -->
+        <iframe name="targetIfr" style="display:none"></iframe>
+    </body>
+</html>
+<script>
+    
+    function dowload(i){
+        window.location.href="/download/"+i
+    };
+
+</script>
